@@ -69,19 +69,32 @@ var twelve = {
 
 };
 
-$("#button").click(function(){
+
+$("#gameStart").click(function(){
+
+
 
      $("#title").replaceWith('<h1>' + one.question + ' </h1>');
 
-      $("#answers").append('<h3>' + one.answerChoices[0] + ' </h3>');
+      $("#answer1").html('<button class="btn">' + one.answerChoices[0] + '</button>');
 
-      $("#answers").append('<h3>' + one.answerChoices[1] + ' </h3>');
+      $("#answer2").html('<button class="btn">' + one.answerChoices[1] + '</button>');
 
-      $("#answers").append('<h3>' + one.answerChoices[2] + ' </h3>');
+      $("#answer3").html('<button class="btn">' + one.answerChoices[2] + '</button>');
 
-      $("#answers").append('<h3>' + one.answerChoices[3] + ' </h3>');
+      $("#answer4").html('<button class="btn">' + one.answerChoices[3] + '</button>');
 
-      $(".btn").html("<p>" + 'Submit' + "</p>")
+      $(".btn-lg").hide();
 
-   console.log(one);
+      var userGuess = 1
+      $("#answer1").click(function(){
+        userGuess = 1
+  });
+
+      if (userGuess === 1){
+        alert("You got it!");
+      } else {
+        alert("Wrong!");
+      }
+
 });
