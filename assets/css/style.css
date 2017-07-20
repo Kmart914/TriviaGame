@@ -1,0 +1,18 @@
+.jumbotron{
+  margin: 220px 100px;
+  background-color: rgba(254, 82, 93, 0.9);
+
+  }
+
+body{
+  background-image: url(../images/ahoy.jpg);
+}
+
+#title, #answers, #button{
+  text-align: center;
+  align-content: center;
+}
+
+h1{
+  text-align: center;
+}
