@@ -74,6 +74,11 @@ var twelve = {
 
 var questions = [one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve];
 
+var totalCorrect = 0;
+var totalWrong = 0;
+
+
+
 function questionSelect(showQuestion){
   $("#title").html('<h2>' + questions[showQuestion].question + '</h2>')
   $("#answer1").html('<button class="btn">' + questions[showQuestion].answerChoices[0] + '</button>');
@@ -91,8 +96,19 @@ function start(){
   		$(this).hide();
       questionSelect(index);
   		//countdownTimer.start();
-  	 	//loadQuestion(index);
   	});
+}
+
+function correct(){
+  totalCorrect++;
+  $("title").html("You Got It! ")
+  $('#gif').append(<div style="width:100%;height:0;padding-bottom:67%;position:relative;"><iframe src="https://giphy.com/embed/vggLJGHF1dgTC" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/celebrate-wall-david-hasselhoff-vggLJGHF1dgTC">via GIPHY</a></p>)
+}
+
+function wrong(){
+  totalWrong++;
+  $("title").html("You Got It! ")
+  $('#gif').append(<div style="width:100%;height:0;padding-bottom:91%;position:relative;"><iframe src="https://giphy.com/embed/hPPx8yk3Bmqys" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/request-donald-wrong-hPPx8yk3Bmqys">via GIPHY</a></p>)
 }
 
 start();
