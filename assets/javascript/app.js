@@ -101,17 +101,42 @@ function start(){
 
 function correct(){
   totalCorrect++;
-  $("title").html("You Got It! ")
-  $('#gif').append(<div style="width:100%;height:0;padding-bottom:67%;position:relative;"><iframe src="https://giphy.com/embed/vggLJGHF1dgTC" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/celebrate-wall-david-hasselhoff-vggLJGHF1dgTC">via GIPHY</a></p>)
+  $("#title").replaceWith('<h2>' + "You Got It!" + '</h2>')
+  $('#gif').append('<div style="width:60%;height:0;padding-bottom:27%;position:relative;"><iframe src="https://giphy.com/embed/vggLJGHF1dgTC" width="60%" height="60%" style="position:absolute; left: 53%;" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/celebrate-wall-david-hasselhoff-vggLJGHF1dgTC">via GIPHY</a></p>')
+  $(".answers").hide();
 }
 
 function wrong(){
   totalWrong++;
-  $("title").html("You Got It! ")
-  $('#gif').append(<div style="width:100%;height:0;padding-bottom:91%;position:relative;"><iframe src="https://giphy.com/embed/hPPx8yk3Bmqys" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/request-donald-wrong-hPPx8yk3Bmqys">via GIPHY</a></p>)
+  $(".title").replaceWith("You Got It! ")
+  $('#gif').append('<div style="width:60%;height:0;padding-bottom:31%;position:relative;"><iframe src="https://giphy.com/embed/hPPx8yk3Bmqys" width="60%" height="60%" style="position:absolute; left: 53%;" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/request-donald-wrong-hPPx8yk3Bmqys">via GIPHY</a></p>')
+  $(".answers").hide();
 }
 
 start();
+
+$('.answers').on('click', function() {
+ console.log($(this));
+
+ if(this.id === "answer1"){
+   var guess = 'A';
+} else if(this.id === 'answer2') {
+ 	var guess = 'B';
+} else if (this.id === 'answer3') {
+ 	var guess = 'C';
+} else if (this.id === 'answer4') {
+ 	var guess = 'D';
+}
+console.log(guess)
+
+if((guess === 'A') && (questions[index].answer[0] === true)){
+  correct();
+} else {
+  wrong();
+}
+
+ });
+
 
 
  });
