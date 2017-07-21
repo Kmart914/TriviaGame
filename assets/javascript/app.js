@@ -75,7 +75,7 @@ var twelve = {
 var questions = [one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve];
 
 function questionSelect(showQuestion){
-  $("#title").html('<button class="btn">' + questions[showQuestion].question + '</button>')
+  $("#title").html('<h2>' + questions[showQuestion].question + '</h2>')
   $("#answer1").html('<button class="btn">' + questions[showQuestion].answerChoices[0] + '</button>');
   $("#answer2").html('<button class="btn">' + questions[showQuestion].answerChoices[1] + '</button>');
   $("#answer3").html('<button class="btn">' + questions[showQuestion].answerChoices[2] + '</button>');
@@ -84,36 +84,18 @@ function questionSelect(showQuestion){
   console.log(showQuestion);
 }
 
+function start(){
+
+  $('#gameStart').on('click', function() {
+      index = 0
+  		$(this).hide();
+      questionSelect(index);
+  		//countdownTimer.start();
+  	 	//loadQuestion(index);
+  	});
+}
+
+start();
 
 
-//$("#gameStart").click(function(){
-
-
-//   $("#title").html('<h1>' + one.question + ' </h1>')
-//      $("#answer1").html('<button class="btn">' + one.answerChoices[0] + '</button>');
-
-//      $("#answer2").html('<button class="btn">' + one.answerChoices[1] + '</button>');
-
-//      $("#answer3").html('<button class="btn">' + one.answerChoices[2] + '</button>');
-
-//      $("#answer4").html('<button class="btn">' + one.answerChoices[3] + '</button>');
-
-//      $(".btn-lg").hide();
-
-//     var userGuess = 1
-//     $("#answer1").click(function(){
-//     userGuess = 1;
-//    });
-//   var userGuess = 0
-//    $("#answer2 #answer3 #answer4").click(function(){
-//      userGuess = 0;
-//    });
-//
-//    if( userGuess === 1){
-//      alert("WIN");
-//    } else {
-//      alert("You Lose!");
-//    }
-//
-//
  });
