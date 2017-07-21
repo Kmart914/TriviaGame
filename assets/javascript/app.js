@@ -104,6 +104,7 @@ function correct(){
   $("#title").replaceWith('<h2>' + "You Got It!" + '</h2>')
   $('#gif').append('<div style="width:60%;height:0;padding-bottom:27%;position:relative;"><iframe src="https://giphy.com/embed/vggLJGHF1dgTC" width="60%" height="60%" style="position:absolute; left: 53%;" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/celebrate-wall-david-hasselhoff-vggLJGHF1dgTC">via GIPHY</a></p>')
   $(".answers").hide();
+
 }
 
 function wrong(){
