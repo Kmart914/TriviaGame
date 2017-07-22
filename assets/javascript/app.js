@@ -93,9 +93,21 @@ function start(){
 
 function nextQuestion(){
   $('#nextQuestion').on('click', function() {
-    $(this).hide();
+    index++;
     questionSelect(index);
+    hideThisStuff();
+
   });
+}
+
+function hideThisStuff(){
+  $('#nextQuestion').hide();
+  $('#gif').hide();
+  $(".correct").hide();
+  $(".wrong").hide();
+
+
+
 }
 
 function correct(){
