@@ -1,78 +1,68 @@
 $(document).ready(function() {
 
-var one = {
+var questions = [
+
+  {
     question:"John",
     answerChoices:["Doe","100","blue","red"],
     answer:[true, false, false, false]
-};
-
-var two = {
-    Audio:"John",
+},
+{
+    question:"John",
+    answerChoices:["Doe","100","blue","red"]
+},
+{
+    question:"John",
     answerChoices:["Doe","100","blue","red"]
 
-};
-
-var three = {
-    Audio:"John",
+},
+{
+    question:"John",
     answerChoices:["Doe","100","blue","red"]
 
-};
-
-var four = {
-    Audio:"John",
+},
+{
+    question:"John",
     answerChoices:["Doe","100","blue","red"]
 
-};
-
-var five = {
-    Audio:"John",
+},
+{
+    question:"John",
     answerChoices:["Doe","100","blue","red"]
 
-};
-
-var six = {
-    Audio:"John",
+},
+{
+    question:"John",
     answerChoices:["Doe","100","blue","red"]
 
-};
-
-var seven = {
-    Audio:"John",
+},
+{
+    question:"John",
     answerChoices:["Doe","100","blue","red"]
 
-};
-
-var eight = {
-    Audio:"John",
+},
+{
+    question:"John",
     answerChoices:["Doe","100","blue","red"]
 
-};
-
-var nine = {
-    Audio:"John",
+},
+{
+    question:"John",
     answerChoices:["Doe","100","blue","red"]
 
-};
-
-var ten = {
-    Audio:"John",
+},
+{
+    question:"John",
     answerChoices:["Doe","100","blue","red"]
 
-};
-
-var eleven = {
-    Audio:"John",
+},
+{
+    question:"John",
     answerChoices:["Doe","100","blue","red"]
 
-};
+}
+]
 
-var twelve = {
-    Audio:"John",
-    answerChoices:["Doe","100","blue","red"]
-
-};
-
-var questions = [one, two, three, four, five, six, seven, eight, nine, ten, eleven, twelve];
 
 var totalCorrect = 0;
 var totalWrong = 0;
