@@ -63,6 +63,9 @@ var questions = [
 }
 ]
 
+var correctGif = ['<iframe src="https://giphy.com/embed/vggLJGHF1dgTC" width="480" height="319" style="position:relative; left: 30%; frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',]
+
+var wrongGif = ['<iframe src="https://giphy.com/embed/hPPx8yk3Bmqys" width="480" height="435" style="position:relative; left: 30%; frameBorder="0" class="giphy-embed" allowFullScreen></iframe>',]
 
 var totalCorrect = 0;
 var totalWrong = 0;
@@ -93,8 +96,7 @@ function start(){
 
 function nextQuestion(){
   $('#nextQuestion').on('click', function() {
-    index++;
-    questionSelect(index);
+    questionSelect(index++);
     hideThisStuff();
 
   });
@@ -113,7 +115,7 @@ function hideThisStuff(){
 function correct(){
   totalCorrect++;
   $("#title").replaceWith('<h2>' + "You Got It!" + '</h2>')
-  $('#gif').append('<iframe src="https://giphy.com/embed/vggLJGHF1dgTC" width="480" height="319" style="position:relative; left: 30%; frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
+  $('#gif').append(correctGif[0]);
   $(".answers").hide();
   $("#nextQuestion").html('<button class="btn">' + "Next Question" + '</button>');
 
@@ -123,7 +125,7 @@ function correct(){
 function wrong(){
   totalWrong++;
   $("#title").replaceWith('<h2>' + "Nope!" + '</h2>')
-  $('#gif').append('<iframe src="https://giphy.com/embed/hPPx8yk3Bmqys" width="480" height="435" style="position:relative; left: 30%; frameBorder="0" class="giphy-embed" allowFullScreen></iframe>')
+  $('#gif').append(wrongGif[0]);
   $(".answers").hide();
   $("#nextQuestion").html('<button class="btn">' + "Next Question" + '</button>');
 
@@ -137,9 +139,9 @@ function score(){
 
 start();
 
+
 $('.answers').on('click', function() {
  console.log($(this));
-
  if(this.id === "answer1"){
    var guess = 'A';
 } else if(this.id === 'answer2') {
@@ -154,13 +156,18 @@ console.log(guess)
 if((guess === 'A') && (questions[index].answer[0] === true)){
   correct();
   score();
-  nextQuestion();
 } else {
   wrong();
   score();
-  nextQuestion();
 
 }
+
+index++
+
+if(index < questions.length){
+  nextQuestion();
+}
+console.log('index' + index);
 console.log(totalWrong);
 console.log(totalCorrect);
 
