@@ -1,5 +1,5 @@
 $(document).ready(function() {
-
+// game array
 var questions = [
 
   {
