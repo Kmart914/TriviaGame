@@ -115,19 +115,45 @@ function getQuestion() {
     });
 
   }
+  function checkAnswer(choice){
+    if(choice !== data[index].answer) {
+      index++;
+      totalWrong++;
+    } else {
+      index++;
+      totalCorrect++;
+    }
+    console.log('right: ' + totalCorrect, 'wrong: ' + totalWrong);
+    console.log(index);
+    // get the next question
+      getQuestion();
+      endGame();
+
+  }
+
+  function endGame(){
+    if(data[index].id === 10 && totalWrong > totalCorrect) {
+      $("#display").html('<div id="choices" class="list-group-item-disabled"><h1>' + "You Lose!" +'</h1></div>');
+      $("#display").append('<div id="choices" class="list-group-item-disabled"><h3>' + "Total Correct: " + totalCorrect +'</h3></div>');
+      $("#display").append('<div id="choices" class="list-group-item-disabled"><h3>' + "Total Wrong: " + totalWrong +'</h3></div>');
+      $("#quiz").html('<iframe src="https://giphy.com/embed/hPPx8yk3Bmqys" width="480" height="435" style="position:relative; left: 30%; frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
+    } else if  (data[index].id === 10 && totalWrong < totalCorrect) {
+      $("#display").html('<div id="choices" class="list-group-item-disabled"><h1>' + "You Win!" +'</h1></div>');
+      $("#display").append('<div id="choices" class="list-group-item-disabled"><h3>' + "Total Correct: " + totalCorrect +'</h3></div>');
+      $("#display").append('<div id="choices" class="list-group-item-disabled"><h3>' + "Total Wrong: " + totalWrong +'</h3></div>');
+      $("#quiz").html('<iframe src="https://giphy.com/embed/vggLJGHF1dgTC" width="480" height="319" style="position:relative; left: 30%; frameBorder="0" class="giphy-embed" allowFullScreen></iframe>');
+    } else if (data[index].id === 10 && totalWrong === totalCorrect){
+      $("#display").html('<div id="choices" class="list-group-item-disabled"><h1>' + "Good Job...." +'</h1></div>');
+
+  }
+  // console.log("Lose")
+
+  }
+
+  // actions
+    $("#gameStart").on('click', function() {
+       start();
+    })
 
 
-index++
-
-if(index < questions.length){
-  nextQuestion();
-}
-console.log('index' + index);
-console.log(totalWrong);
-console.log(totalCorrect);
-
- });
-
-
-
- });
+  });
