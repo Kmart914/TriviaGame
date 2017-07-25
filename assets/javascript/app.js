@@ -111,37 +111,6 @@ function getQuestion() {
     $('.list-group').append('<a href="#" class="list-group-item text-center"><p class="lead">' + data[index].answerChoices[i] + '</p></a>');
     }
 
-
-
-//Hide all of the stuff from the page after they select an answer so we can inject the next question in.
-//function hideThisStuff(){
-//  $('#nextQuestion').hide();
-//  $('#gif').hide();
-//  $(".correct").hide();
-//  $(".wrong").hide();
-
-
-
-//}
-
-//If they get the answer correct this will run.
-function correct(){
-  totalCorrect++;
-  $("#title").replaceWith('<h2>' + "You Got It!" + '</h2>')
-  $('#gameZone').replaceWith(correctGif[0]);
-//$("#nextQuestion").html('<button class="btn">' + "Next Question" + '</button>');
-
-
-}
-//If they get the answer wrong this will run.
-function wrong(){
-  totalWrong++;
-  $("#title").replaceWith('<h2>' + "Nope!" + '</h2>')
-  $('#gameZone').replaceWith(wrongGif[0]);
-//  $("#nextQuestion").html('<button class="btn">' + "Next Question" + '</button>');
-
-
-}
 //Function to show their current score after they select an answer.
 function score(){
   $("#quiz").append('<h2>' + "Total Correct: " + totalCorrect + '</h2>')
