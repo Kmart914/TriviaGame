@@ -100,9 +100,21 @@ function getQuestion() {
     $('.list-group').append('<a href="#" class="list-group-item text-center"><p class="lead">' + data[index].answerChoices[i] + '</p></a>');
     }
 
-//Start game.
-start();
+    highlightActive();
+    console.log('questionId: ' + data[index].id);
 
+  }
+
+  function highlightActive(){
+    $(".list-group-item").click(function() {
+      var txt = $(this).text();
+      $(".list-group-item").removeClass('active');
+      $(this).addClass('active');
+      checkAnswer(txt);
+
+    });
+
+  }
 
 
 index++
