@@ -83,17 +83,6 @@ var totalCorrect = 0;
 var totalWrong = 0;
 var index = 0;
 
-// Function to pull the first question at game start.
-function questionSelect(showQuestion){
-  $("#title").html('<h2>' + questions[showQuestion].question + '</h2>')
-  $("#gameZone").append('<button class="btn answers" id="answer1">' + questions[showQuestion].answerChoices[0] + '</button>');
-  $("#gameZone").append('<button class="btn answers" id="answer2">' + questions[showQuestion].answerChoices[1] + '</button>');
-  $("#gameZone").append('<button class="btn answers" id="answer3">' + questions[showQuestion].answerChoices[2] + '</button>');
-  $("#gameZone").append('<button class="btn answers" id="answer4">' + questions[showQuestion].answerChoices[3] + '</button>');
-
-  console.log(showQuestion);
-}
-
 
 //Game start function
 function start(){
@@ -111,47 +100,10 @@ function getQuestion() {
     $('.list-group').append('<a href="#" class="list-group-item text-center"><p class="lead">' + data[index].answerChoices[i] + '</p></a>');
     }
 
-//Function to show their current score after they select an answer.
-function score(){
-  $("#quiz").append('<h2>' + "Total Correct: " + totalCorrect + '</h2>')
-  $("#quiz").append('<h2>' + "Total Wrong: " + totalWrong + '</h2>')
-}
-
 //Start game.
 start();
 
-//Setting the value of each answer to a letter that we can tie back to the booleans.
-$('#quiz').on('click', function() {
- console.log($(this));
- if(this.id === "answer1"){
-   var guess = 'A';
-} else if(this.id === 'answer2') {
- 	var guess = 'B';
-} else if (this.id === 'answer3') {
- 	var guess = 'C';
-} else if (this.id === 'answer4') {
- 	var guess = 'D';
-}
-console.log(guess)
 
-//This will look for the
-if((guess === 'A') && (questions[index].answer[0] === true)){
-  correct();
-  score();
-} else if((guess ==='B') && (questions[index].answer[1] === true)){
-  correct();
-  score();
-} else if((guess ==='C') && (questions[index].answer[2] === true)){
-  correct();
-  score();
-} else if((guess ==='D') && (questions[index].answer[3] === true)){
-  correct();
-  score();
-} else {
-  wrong();
-  score();
-
-}
 
 index++
 
