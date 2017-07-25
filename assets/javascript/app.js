@@ -97,22 +97,21 @@ function questionSelect(showQuestion){
 
 //Game start function
 function start(){
-
-  $('#gameStart').on('click', function() {
-    		$(this).hide();
-      questionSelect(index);
-  	});
+  // remove button and render the question once game starts.
+  $('#display').empty();
+  getQuestion();
 }
+function getQuestion() {
+  var question = data[index].question;
+  var choices = data[index].answerChoices;
+  $('.list-group').empty();
+  // add question to jumbotron
+  $("#display").html('<div id="choices" class="list-group-item-disabled"><h1>' + question +'</h1></div>');
+  for(var i = 0; i < data[index].answerChoices.length; i++) {
+    $('.list-group').append('<a href="#" class="list-group-item text-center"><p class="lead">' + data[index].answerChoices[i] + '</p></a>');
+    }
 
-//Function to populate next question after completing each question.
-function nextQuestion(){
-  $('#nextQuestion').on('click', function() {
-    questionSelect(++index);
-    hideThisStuff();
 
-
-  });
-}
 
 //Hide all of the stuff from the page after they select an answer so we can inject the next question in.
 //function hideThisStuff(){
